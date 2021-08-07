@@ -1,0 +1,39 @@
+#app_navbar {
+    justify-content: center;
+    background: none;
+    margin-bottom: 25px;
+}
+
+#app_navbar a {
+    margin: 0px 10px 0px 10px;
+    background: #B3003B;
+}
+
+.row {
+    align-items: center;
+}
+
+#app_logo {
+    text-align:start;
+    padding: 0px 0px;
+    margin-top: 12px;
+
+}
+
+img {
+    width: 8.5em;
+    height: 8.5em;
+}
+
+h1 {
+    font-size: 3em;
+    color: #86002d;
+    font-weight: bold;
+    margin: 0px 0px -10px 0px;
+}
+
+#app_header {
+    vertical-align: sub;
+    text-align: center;
+    margin-bottom: 25px;
+}
