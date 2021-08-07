@@ -1,0 +1,22 @@
+#register_body {
+    text-align: -webkit-center;
+}
+
+.submit_button {
+    background: #B3003B;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+  
+.example-full-width {
+    width: 100%;
+}
+
+::ng-deep .mat-snack-bar-container {
+    min-width: 450px !important;
+    padding: 30px !important;
+}
