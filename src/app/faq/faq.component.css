@@ -1,0 +1,15 @@
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+}
+
+.faq_img {
+  text-align: -webkit-center;
+}
+
+.faq_img_big {
+  text-align: -webkit-center;
+}
+
+.faq_img_big img {
+  width:75%;
+}

@@ -1,0 +1,82 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                          (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          What do i need to do in order to play the game?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>You don’t need to do anything in order to play the game, just navigate to the game view and start playing. If you want your high score to be saved you need to register an account and log in first.</p>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                          (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          How does this game work?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>The goal of the game is to rearrange the squares to get the correct picture. To do so you just click on one square and then on the square you want to change its position with. Do that until all the squares are in the correct place. </p>
+      <div class="faq_img">
+        <img src="../../assets/FAQ_screenshots/Screenshot1.png" alt="screenshot of game">
+      </div>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                          (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          How is the high score calculated?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>The high score you get depends on the time you take to solve the puzzle. The formular is 100 – seconds it took to solve the puzzle. </p>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                          (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Why can't I login with my account?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>There can several reasons cause your problem. Take a deep breathe and keep calm. Open the developer tools by pressing the key "F12" or right click on the webpage and open them from the appearing list. Activate the tab 'console' and look for red highlighted error-codes.<br><br>- ERR_CONNECTION_REFUSED tells you that the server faces technical problems. Our team is working on it at the moment, so please play without login or try again later.</p>
+      <div class="faq_img_big">
+        <img src="../../assets/FAQ_screenshots/server_offline_wrong_login.jpg" alt="connection failed, faq screenshots">
+      </div>
+      <p><br>- 401 (Unauthorized) tells you that there has been a problem, comparing your input with data from our database. Maybe you have misspelled your login data or forgotten the correct password? Don't forget to use your correct username (not email!) and password for a successful login.</p>
+      <div class="faq_img_big">
+        <img src="../../assets/FAQ_screenshots/server_online_wrong_login.jpg" alt="connection failed, faq screenshots">
+      </div>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                          (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Why doesn't my highscore show up on the score board?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>You probably were not logged in when you played the game, login and try again, it should update you high score now.</p>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                          (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Can I upload a puzzle myselve to play/solve it?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>At the moment we started this project only with fixed puzzles and only one of them currently. We look forward to change that in the future and be able to offer you the ability of uploading your own images to create a personal puzzle. You can also support us by sending your puzzle via email. At the last extension you will find the contact details of the developers who are happy to support you with questions and ideas for new puzzles.</p>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                          (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Why does the FAQ looks like this?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>To fulfill this task in good manners, we simply looked up the top 20 FAQ-designs of famous websides. Taking youtube as role model we decided to design our FAQ with expansion panels to safe space and create a better first visual expression.</p>
+    </mat-expansion-panel>
+    
+  </mat-accordion>
