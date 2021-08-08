@@ -28,8 +28,7 @@ export class LoginService {
             this.loggedin$.next(true);
             this.token = responseData.token;
             this.username = responseData.username;
-
-            this.router.navigate(['profile']);
+            this.router.navigate(['overview']);
           } 
     });    
   }

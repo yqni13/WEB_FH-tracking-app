@@ -24,11 +24,11 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder, private http: HttpClient, private _snackBar: MatSnackBar) { 
     this.registerForm = fb.group({
       username: ['', [Validators.required]],
-      firstname: ['', [Validators.required]],
-      lastname: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
       password_origin: ['', [Validators.required, Validators.minLength(8)]],
-      password_confirm: ['', [Validators.required]]
+      password_confirm: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      firstname: ['', [Validators.required]],
+      lastname: ['', [Validators.required]]
     }, {
       validator: ConfirmPasswordValidator('password_origin', 'password_confirm')
     })
@@ -41,11 +41,11 @@ export class RegisterComponent implements OnInit {
   clearInput() {    // resets registration form (no data, no validation errors until reload)
     this.registerForm.reset();
     this.registerForm.controls["username"].setErrors(null);
-    this.registerForm.controls["firstname"].setErrors(null);
-    this.registerForm.controls["lastname"].setErrors(null);
-    this.registerForm.controls["email"].setErrors(null);
     this.registerForm.controls["password_origin"].setErrors(null);
     this.registerForm.controls["password_confirm"].setErrors(null);
+    this.registerForm.controls["email"].setErrors(null);
+    this.registerForm.controls["firstname"].setErrors(null);
+    this.registerForm.controls["lastname"].setErrors(null);
   }
 
   ngOnInit(): void {

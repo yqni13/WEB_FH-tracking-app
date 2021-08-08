@@ -7,21 +7,6 @@
                 <mat-error *ngIf="registerForm.get('username')?.hasError('required')">Value required</mat-error>
             </mat-form-field>
         </div>
-        <div id="register_firstname">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Enter first name</mat-label>
-                <input matInput placeholder="Lukas" formControlName="firstname" required>
-                <mat-error *ngIf="registerForm.get('firstname')?.errors?.required">Value required</mat-error>
-            </mat-form-field>
-        </div>
-        <div id="register_email">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Enter email</mat-label>
-                <input matInput placeholder="user@technikum-wien.at" formControlName="email" required>
-                <mat-error *ngIf="registerForm.get('email')?.errors?.required">Value required</mat-error>
-                <mat-error *ngIf="registerForm.get('email')?.errors?.email">Invalid format</mat-error>
-            </mat-form-field>
-        </div>
         <div id="register_password_origin">
             <mat-form-field class="example-full-width" hintLabel="Min 8 characters" appearance="fill">
                 <mat-label>Enter password</mat-label>
@@ -44,8 +29,28 @@
                 </button>
             </mat-form-field>
         </div>
-        <!-- placeholder for more register options -->
-
-        <button mat-raised-button color="primary" class="submit_button" type="submit">REGISTER</button>
+        <div id="register_email">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Enter email</mat-label>
+                <input matInput placeholder="user@technikum-wien.at" formControlName="email" required>
+                <mat-error *ngIf="registerForm.get('email')?.errors?.required">Value required</mat-error>
+                <mat-error *ngIf="registerForm.get('email')?.errors?.email">Invalid format</mat-error>
+            </mat-form-field>
+        </div>
+        <div id="register_firstname">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Enter first name</mat-label>
+                <input matInput placeholder="Lukas" formControlName="firstname" required>
+                <mat-error *ngIf="registerForm.get('firstname')?.errors?.required">Value required</mat-error>
+            </mat-form-field>
+        </div>
+        <div id="register_lastname">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Enter last name</mat-label>
+                <input matInput placeholder="Varga" formControlName="lastname" required>
+                <mat-error *ngIf="registerForm.get('lastname')?.errors?.required">Value required</mat-error>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" class="submit_button" type="submit">SIGNUP</button>
     </form>
 </div>
