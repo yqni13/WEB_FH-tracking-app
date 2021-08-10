@@ -1,1 +1,18 @@
-<p>tracking works!</p>
+<div class="container" id="tracking_body">
+    <mat-form-field appearance="fill">
+        <mat-label>Studyroom</mat-label>
+        <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let room of rooms" [value]="room">{{room}}</mat-option>
+        </mat-select>
+    </mat-form-field>  
+  
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose date</mat-label>
+            <input matInput [matDatepicker]="dp3" disabled>
+            <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+            <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+        </mat-form-field>
+    </p>
+</div>
