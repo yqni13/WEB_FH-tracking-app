@@ -12,7 +12,7 @@ app.use(express.urlencoded({
 }));
 
 app.post('/register', (req, res) => {
-   if (db.register(req.body.username, req.body.firstname, req.body.lastname, req.body.email, req.body.password, 0)){
+   if (db.register(req.body.username, req.body.firstname, req.body.lastname, req.body.email, req.body.password, "FH Technikum Wien", req.body.room, req.body.date, req.body.begin, req.body.end)) {
        res.status(200).json({
            message: "Registration successful with express"
        });
@@ -21,11 +21,10 @@ app.post('/register', (req, res) => {
            message: "Data for registration does already exist"
        });
    }
-
 })
 
 //POST route for login
-app.post('/login', (req, res, next)=>{
+app.post('/login', (req, res) => {
     
     const loginData = JSON.stringify(req.body);
 
@@ -33,13 +32,13 @@ app.post('/login', (req, res, next)=>{
     credentials = db.login(req.body.username, req.body.password);
     //console.log(credentials);
     
-    if(credentials != null){
+    if (credentials != null) {
         res.status(200).json({
             message: 'Login from express.js',
             username: credentials.username,
             token: credentials.token
         });
-    }else{
+    } else {
         res.status(401).json({
             message: 'login failed', 
         });
@@ -47,16 +46,16 @@ app.post('/login', (req, res, next)=>{
 });
 
 
-app.post('/logout', (req, res, next)=>{
+app.post('/logout', (req, res) => {
 
     const logoutData = JSON.stringify(req.body);    
 
     //logout in db 
-    if(db.deleteToken(req.body.token)){
+    if (db.deleteToken(req.body.token)) {
         res.status(200).json({
             message: 'logout'            
         });
-    }else{
+    } else {
         res.status(400).json({
             message: 'logout failed'
         });
@@ -65,47 +64,33 @@ app.post('/logout', (req, res, next)=>{
     
 });
 
-app.post('/highscore', (req, res, next)=>{
+app.post('/tracking', (req, res) => {
 
     const loginData = JSON.stringify(req.body);
     
-    if(db.isAuthenticated(req.body.token)){
-        db.addHighscore(req.body.username, req.body.score);
-        //console.log("new highscore and correct user found");
+    if (db.isAuthenticated(req.body.token)) {
+        db.addNewTrackingData(req.body.username, req.body.room, req.body.date, req.body.begin, req.body.end);
         res.status(200).json({
-            message: 'posted score'            
+            message: 'posted tracking data'            
         });
-    }else{
+    } else {
         res.status(400).json({
-            message: 'posting score failed'
+            message: 'posting tracking data failed'
         });
     }
 });
 
-app.get('/highscores', (req, res, next)=>{
-    
-    var data;
-    if(data = db.getHighscores()){ 
-        res.status(200).json({
-            message: 'fetched highscores',
-            data: data,            
-        });
-    }else{
-        res.status(400).json({
-            message: 'get highscores failed'
-        });
-    }    
-});
-
 app.get('/overview', (req, res) => {
 
-    if(db.isAuthenticated(req.query.token)){
+    if (db.isAuthenticated(req.query.token)) {
         var data = db.getUserProfile(req.query.username);
+        var trackingData = db.getTrackingRecords(req.query.username);
         res.status(200).json({
             message: 'fetched user data',
-            data: data,            
+            userProfileData: data,
+            userTrackingData: trackingData,            
         });
-    }else{
+    } else {
         res.status(400).json({
             message: 'get user data failed'
         });
