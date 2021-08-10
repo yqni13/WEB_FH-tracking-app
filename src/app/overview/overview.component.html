@@ -1,1 +1,63 @@
-<p>nothing tracked to date</p>
+<div class="flex-container">
+    <div class="row">
+        <div class="overview_left col-4">
+            <label for="overview_username">USER: </label>
+        </div>
+        <div class="overview_right col-8">
+            <input placeholder="no data" name="overview_username" value="{{userData.nameData}}" type="text" readonly>
+        </div>
+    </div>
+    <div class="row">
+        <div class="overview_left col-4">
+            <label for="overview_name">NAME: </label>
+        </div>
+        <div class="overview_right col-8">
+            <input placeholder="no data" name="overview_firstname" value="{{userData.firstnameData}}" type="text" readonly>
+            <input placeholder="no data" name="overview_lastname" value="{{userData.lastnameData}}" type="text" readonly>
+        </div>
+    </div>
+    <div class="row">
+        <div class="overview_left col-4">
+            <label for="profile_email">EMAIL: </label>
+        </div>
+        <div class="overview_right col-8">
+            <input placeholder="no data" name="profile_email" value="{{userData.emailData}}" type="text" readonly>
+        </div>
+    </div>
+    <div class="row">
+        <div class="overview_left col-4">
+            <label for="profile_score">UNIVERSITY: </label>
+        </div>
+        <div class="overview_right col-8">
+            <input placeholder="no data" name="overview_university" value="{{userData.universityData}}" type="text" readonly>
+        </div>
+    </div>
+    <table mat-table [dataSource]="trackingData" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let i = index">{{i + 1}}</td>
+        </ng-container>
+        <ng-container matColumnDef="room">
+            <th mat-header-cell *matHeaderCellDef>Room</th>
+            <td mat-cell *matCellDef="let element">{{element.roomData}}</td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>Date</th>
+            <td mat-cell *matCellDef="let element">{{element.dateData}}</td>
+        </ng-container>
+        <ng-container matColumnDef="start">
+            <th mat-header-cell *matHeaderCellDef>Begin</th>
+            <td mat-cell *matCellDef="let element">{{element.startTimeData}}</td>
+        </ng-container>
+        <ng-container matColumnDef="end">
+            <th mat-header-cell *matHeaderCellDef>End</th>
+            <td mat-cell *matCellDef="let element">{{element.endTimeData}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<p *ngIf="loggedin==false">You are not logged in</p>
