@@ -1,8 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    /* main theme colors */
+    --darkmode: #303438;
+    --lightmode: linear-gradient(45deg, #D9D5BA 0%, #859BA4 50%, #C596A6 100%);
+    --workmode: #99BBFF;
+    --logoyellow: #a5bd2e;
+
+    /* components colors */
+    --buttonback: #B30059;
+    --githubblue: #083969;
+    --materials: rgba(255,255,255,.1);
+}
 
 html, body { height: 100%; }
 body { 
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background: linear-gradient(135deg, #FFB8B8 0%, #401F22 62%, #000000 100%)fixed;
+    background: var(--lightmode)fixed;
 }
