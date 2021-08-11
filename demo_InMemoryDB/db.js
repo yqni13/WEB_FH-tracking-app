@@ -14,9 +14,9 @@ module.exports.db = {
     tokens: [],
     
     trackingRecords: [ 
-        { username: "tobi1", room: "A0.0", date: "01.04.2021", begin: "08:00", end: "09:30" },
-        { username: "yqni13", room: "A2.09", date: "03.05.2021", begin: "08:00", end: "09:30" },
-        { username: "yqni13", room: "A3.01", date: "06.05.2021", begin: "09:40", end: "11:10" }
+        { username: "tobi1", room: "A0.0", date: "01.04.2021", begin: "08:00:00", end: "09:30:00", timeInSeconds:  5400},
+        { username: "yqni13", room: "A2.09", date: "03.05.2021", begin: "08:00:00", end: "11:10:00", timeInSeconds: 11400},
+        { username: "yqni13", room: "A3.01", date: "06.05.2021", begin: "09:40:00", end: "11:10:00", timeInSeconds: 5400 }
     ],
     
     register: function(userName, firstName, lastName, email, password) {
@@ -64,8 +64,8 @@ module.exports.db = {
     },    
 
     // add new tracked data
-    addNewTrackingData: function(username, roomData, dateData, beginData, endData) {
-        this.trackingRecords.push({username: username, room: roomData, date: dateData, begin: beginData, end: endData});
+    addNewTrackingData: function(username, roomData, dateData, beginData, endData, timeInSecondsData) {
+        this.trackingRecords.push({username: username, room: roomData, date: dateData, begin: beginData, end: endData, timeInSeconds: timeInSecondsData});
     },
 
     // get overview -> all tracking data regarding chosen user
@@ -90,7 +90,8 @@ module.exports.db = {
                     roomData: this.trackingRecords[i].room,
                     dateData: this.trackingRecords[i].date,
                     startTimeData: this.trackingRecords[i].begin,
-                    endTimeData: this.trackingRecords[i].end
+                    endTimeData: this.trackingRecords[i].end,
+                    timeInSecondsData: this.trackingRecords[i].timeInSeconds
                 });                
             }
         }
@@ -99,7 +100,8 @@ module.exports.db = {
                 roomData: "N/A",
                 dateData: "N/A",
                 startTimeData: "N/A",
-                endTimeData: "N/A"
+                endTimeData: "N/A",
+                timeInSecondsData: "N/A"
             })
         }
         return trackingData;        

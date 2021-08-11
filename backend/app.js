@@ -12,7 +12,7 @@ app.use(express.urlencoded({
 }));
 
 app.post('/register', (req, res) => {
-   if (db.register(req.body.username, req.body.firstname, req.body.lastname, req.body.email, req.body.password, "FH Technikum Wien", req.body.room, req.body.date, req.body.begin, req.body.end)) {
+   if (db.register(req.body.username, req.body.firstname, req.body.lastname, req.body.email, req.body.password, "FH Technikum Wien", req.body.room, req.body.date, req.body.begin, req.body.end, req.body.timeInSeconds)) {
        res.status(200).json({
            message: "Registration successful with express"
        });
@@ -69,7 +69,7 @@ app.post('/tracking', (req, res) => {
     const loginData = JSON.stringify(req.body);
     
     if (db.isAuthenticated(req.body.token)) {
-        db.addNewTrackingData(req.body.username, req.body.room, req.body.date, req.body.begin, req.body.end);
+        db.addNewTrackingData(req.body.username, req.body.room, req.body.date, req.body.begin, req.body.end, req.body.timeInSeconds);
         res.status(200).json({
             message: 'posted tracking data'            
         });
