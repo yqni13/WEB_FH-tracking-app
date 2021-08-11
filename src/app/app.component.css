@@ -6,7 +6,9 @@
 
 #app_navbar a {
     margin: 0px 10px 0px 10px;
-    background: #B3003B;
+    background: var(--githubblue);/*#B3003B*/
+    color: #fff;
+
 }
 
 .row {
@@ -16,9 +18,18 @@
 #app_logo {
     text-align:start;
     padding: 0px 0px;
-    margin-top: 12px;
+    margin-top: 6px;
 
 }
+
+#toggle_theme {
+    display: flex;
+    float: right;
+    margin: 50px;
+    color: var(--buttonback);
+}
+
+
 
 img {
     width: 8.5em;
@@ -27,7 +38,7 @@ img {
 
 h1 {
     font-size: 3em;
-    color: #86002d;
+    color: var(--buttonback);
     font-weight: bold;
     margin: 0px 0px -10px 0px;
 }

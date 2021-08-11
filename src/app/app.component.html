@@ -1,10 +1,13 @@
-<img src="../assets/logo/logo.png" alt="logo not available">
+<div>
+    <img src="../assets/logo/logo.png" alt="logo not available">
+    <mat-slide-toggle id="toggle_theme" (change)="colorTheme()" ><i class="far fa-sun"></i> / <i class="far fa-moon"></i></mat-slide-toggle>
+</div>
 <div id="app_header">
     <h1>FH-tracking-app</h1>
 </div>
 <mat-toolbar id="app_navbar">
     <a *ngIf="loggedin==true" color="primary" mat-raised-button type="button" routerLink="/overview">OVERVIEW</a> 
-    <a *ngIf="loggedin==true" mat-raised-button color="primary" type="button" routerLink="/tracking">TRACKING</a>
+    <a *ngIf="loggedin==true" mat-raised-button color="primary" type="button" routerLink="/tracking">TRACK TIME</a>
     <a mat-raised-button color="primary" type="button" routerLink="/faq">FAQ</a>
     <a *ngIf="loggedin==false" mat-raised-button color="primary" type="button" routerLink="/register">REGISTER</a>
     <a *ngIf="loggedin==false" color="primary" mat-raised-button type="button" routerLink="/login">LOGIN</a>
