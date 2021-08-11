@@ -1,9 +1,10 @@
 #register_body {
     text-align: -webkit-center;
+    margin-top: 25px;
 }
 
 .submit_button {
-    background: #B3003B;
+    background: var(--githubblue);
 }
 
 .example-form {
@@ -19,4 +20,12 @@
 ::ng-deep .mat-snack-bar-container {
     min-width: 450px !important;
     padding: 30px !important;
+    background-color: var(--githubblue);
+    color: white;
+} 
+
+::ng-deep .mat-simple-snackbar-action button {
+    color: var(--logoyellow) !important;
+    font-weight: bold !important;
+    font-size: 1.2em !important;
 }

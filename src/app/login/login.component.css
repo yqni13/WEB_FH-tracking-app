@@ -13,9 +13,14 @@
   }
 
   .submit_button {
-    background: #B3003B;
+    background: var(--githubblue);
 }
 
 #login_body {
   text-align: -webkit-center;
+  margin-top: 25px;
+}
+
+::ng-deep .mat-form-field-flex {
+  color: white;
 }

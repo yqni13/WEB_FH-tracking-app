@@ -1,3 +1,42 @@
+.flex-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overview_labels {
+    margin: 15px 0 3px;
+    color: white;
+    font-size: 0.9em;
+}
+
+label {
+    padding: 5px 8px 2px 8px;
+    background-color: var(--githubblue);
+    border-radius: 5px;
+}
+
+input {
+    padding: 10px 15px;
+    border-radius: 7.5px;
+    border-color: var(--githubblue);
+    background: var(--materials);
+    text-align: center;
+    width: 35%;
+    color: white;
+}
+
+#overview_table_body {
+    text-align: -webkit-center;
+    margin-bottom: 50px;
+}
+
 table {
-    width: 100%;
+    margin: 10px;
+    width: 90%;
+    background: var(--materials);
+    text-align: start;
+}
+
+mat-divider {
+    margin: 25px 0;
 }
