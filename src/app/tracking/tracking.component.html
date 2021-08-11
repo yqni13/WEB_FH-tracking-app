@@ -1,18 +1,29 @@
 <div class="container" id="tracking_body">
-    <mat-form-field appearance="fill">
-        <mat-label>Studyroom</mat-label>
-        <mat-select>
-            <mat-option>None</mat-option>
-            <mat-option *ngFor="let room of rooms" [value]="room">{{room}}</mat-option>
-        </mat-select>
-    </mat-form-field>  
-  
-    <p>
+    <form id="tracking_form" class="example-form" [formGroup]="trackingForm" (ngSubmit)="OnSubmit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Studyroom</mat-label>
+            <mat-select formControlName="roomInput">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let room of rooms"  [value]="room">{{room}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="trackingForm.get('roomInput')?.errors?.required">Input required</mat-error>
+        </mat-form-field><br>  
+      
         <mat-form-field appearance="fill">
             <mat-label>Choose date</mat-label>
-            <input matInput [matDatepicker]="dp3" disabled>
-            <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
-            <mat-datepicker #dp3 disabled="false"></mat-datepicker>
-        </mat-form-field>
-    </p>
+            <input matInput [matDatepicker]="picker" formControlName="dateInput" >
+            <mat-error *ngIf="trackingForm.get('dateInput')?.errors?.required">Input required</mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field><br>
+    
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>start time measuring</mat-label>
+            <input matInput type="time" step="1" formControlName="timeInput" id="tracking_time_input">
+            <mat-error *ngIf="trackingForm.get('timeInput')?.errors?.required">Input required</mat-error>
+        </mat-form-field><br>
+    
+        <button type="submit">Check In</button>
+    </form>
+    <button type="button" id="button_checkout" (click)="postTracking(); clearInput();">Check Out</button>
 </div>
