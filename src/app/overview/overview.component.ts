@@ -11,7 +11,7 @@ export class OverviewComponent implements OnInit {
 
   userData: any = [];
   trackingData: any = [];
-  displayedColumns = ['position', 'room', 'date', 'start', 'end'];
+  displayedColumns = ['position', 'room', 'date', 'start', 'end', 'durationSeconds'];
   loggedin = false;
 
   constructor(private http: HttpClient, private loginService: LoginService) { 

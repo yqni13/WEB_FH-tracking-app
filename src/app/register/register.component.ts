@@ -15,7 +15,6 @@ export class RegisterComponent implements OnInit {
 
   hide = true;
   message: string = "You have successfully signed up =>";
-
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   }
