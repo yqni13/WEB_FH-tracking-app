@@ -27,7 +27,8 @@ input {
 
 #overview_table_body {
     text-align: -webkit-center;
-    margin-bottom: 50px;
+    margin-bottom: 50px !important;
+    padding-bottom: 50px;
 }
 
 table {

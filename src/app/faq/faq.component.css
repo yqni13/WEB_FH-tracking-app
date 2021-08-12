@@ -18,14 +18,10 @@ mat-expansion-panel-header {
   margin: 0px 20px !important;
 }
 
-.faq_img {
-  text-align: -webkit-center;
+.faq_image {
+  width: 85% !important;
 }
 
-.faq_img_big {
-  text-align: -webkit-center;
-}
-
-.faq_img_big img {
-  width:75%;
+p {
+  text-align: justify;
 }
