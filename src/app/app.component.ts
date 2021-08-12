@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import {LoginService} from './login.service';
 
 @Component({
@@ -21,20 +20,22 @@ export class AppComponent {
   }
   colorTheme() {
     ++this.themeCounter;
+
     if (this.themeCounter%2 == 1) {
-      // change to darkmode
+      
+      // change to darkmode    
       document.body.style.background = "var(--darkmode)";
       document.getElementsByTagName('h1')[0].style.color = "var(--logoyellow)";
       document.getElementById('toggle_theme')!.style.color = "var(--logoyellow)";
+
     } else {
+      
       // change to lightmode
       document.body.style.background = "var(--lightmode)";
       document.getElementsByTagName('h1')[0].style.color = "var(--buttonback)";
       document.getElementById('toggle_theme')!.style.color = "var(--buttonback)";
-      // let button = document.getElementsByClassName('submit_button[_ngcontent-qbb-c83]')!;
-      // button.style.backgroundColor = "var(--buttonlight)";
     }
-    console.log(this.themeCounter);
+
   }
   
   ngOnInit() {

@@ -110,8 +110,13 @@ export class TrackingComponent implements OnInit {
     this.date = this.day + "." + this.month + "." + this.year;
 
     this.http.post<{message: 'string'}>('http://localhost:3000/tracking', {room: this.trackingForm.value.roomInput, date: this.date, begin: this.chosenTime, end: this.chosenTimeEnd, timeInSeconds: this.timeInNumber, username: this.loginService.getUsername(), token: this.loginService.getToken()}, this.httpOptions)
-        .subscribe((responseData) => {
-          console.log(responseData);
+      .subscribe({
+        next: (responseData) => {
+        console.log(responseData.message);
+      },
+      error: (err) => {
+        console.log(err.error.message);
+      }
     });
     document.getElementById("tracking_form")!.style.visibility = "visible";
     document.getElementById("button_checkout")!.style.visibility = "hidden";

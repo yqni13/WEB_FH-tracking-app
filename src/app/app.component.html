@@ -6,12 +6,12 @@
     <h1>FH-tracking-app</h1>
 </div>
 <mat-toolbar id="app_navbar">
-    <a *ngIf="loggedin==true" color="primary" mat-raised-button type="button" routerLink="/overview">OVERVIEW</a> 
-    <a *ngIf="loggedin==true" mat-raised-button color="primary" type="button" routerLink="/tracking">TRACK TIME</a>
-    <a mat-raised-button color="primary" type="button" routerLink="/faq">FAQ</a>
-    <a *ngIf="loggedin==false" mat-raised-button color="primary" type="button" routerLink="/register">REGISTER</a>
-    <a *ngIf="loggedin==false" color="primary" mat-raised-button type="button" routerLink="/login">LOGIN</a>
-    <a *ngIf="loggedin==true" color="primary" mat-raised-button (click)="loggout()" type="button">LOGOUT</a>
+    <a class="router_anchor" *ngIf="loggedin==true" color="primary" mat-raised-button type="button" routerLink="/overview">OVERVIEW</a> 
+    <a class="router_anchor" *ngIf="loggedin==true" mat-raised-button color="primary" type="button" routerLink="/tracking">TRACK TIME</a>
+    <a class="router_anchor" mat-raised-button color="primary" type="button" routerLink="/faq">FAQ</a>
+    <a class="router_anchor" *ngIf="loggedin==false" mat-raised-button color="primary" type="button" routerLink="/register">REGISTER</a>
+    <a class="router_anchor" *ngIf="loggedin==false" color="primary" mat-raised-button type="button" routerLink="/login">LOGIN</a>
+    <a class="router_anchor" *ngIf="loggedin==true" color="primary" mat-raised-button (click)="loggout()" type="button">LOGOUT</a>
 </mat-toolbar>
 <mat-divider></mat-divider>
 <router-outlet></router-outlet>

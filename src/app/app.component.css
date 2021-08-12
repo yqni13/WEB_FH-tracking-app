@@ -6,7 +6,7 @@
 
 #app_navbar a {
     margin: 0px 10px 0px 10px;
-    background: var(--githubblue);/*#B3003B*/
+    background: var(--githubblue);
     color: #fff;
 
 }
