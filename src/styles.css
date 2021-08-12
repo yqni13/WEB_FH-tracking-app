@@ -10,6 +10,7 @@
     --buttonback: #B30059;
     --githubblue: #083969;
     --materials: rgba(255,255,255,.1);
+    --buttonlight: #8914a6;
 }
 
 html, body { height: 100%; }

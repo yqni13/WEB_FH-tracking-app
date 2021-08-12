@@ -31,6 +31,8 @@ export class AppComponent {
       document.body.style.background = "var(--lightmode)";
       document.getElementsByTagName('h1')[0].style.color = "var(--buttonback)";
       document.getElementById('toggle_theme')!.style.color = "var(--buttonback)";
+      // let button = document.getElementsByClassName('submit_button[_ngcontent-qbb-c83]')!;
+      // button.style.backgroundColor = "var(--buttonlight)";
     }
     console.log(this.themeCounter);
   }
