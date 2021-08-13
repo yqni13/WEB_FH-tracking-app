@@ -53,7 +53,7 @@ app.post('/logout', (req, res) => {
     //logout in db 
     if (db.deleteToken(req.body.token)) {
         res.status(200).json({
-            message: 'logout'            
+            message: 'logout successful'            
         });
     } else {
         res.status(400).json({

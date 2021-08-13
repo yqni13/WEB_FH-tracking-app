@@ -40,6 +40,7 @@ module.exports.db = {
         }
 
         this.users.push({ username: userName, firstname: firstName, lastname: lastName, email: email, password: passwordHash.generate(password), university: "FH Technikum Wien"});
+        this.trackingRecords.push({username: userName, room: "N/A", date: "N/A", begin: "N/A", end: "N/A", timeInSeconds: "N/A"});
         return true;
     },
 
@@ -66,11 +67,7 @@ module.exports.db = {
     isAuthenticated: function(authToken) {
         //console.log(this.tokens);
         return this.tokens.find(auth => auth.token == authToken) != undefined;
-    },
-
-    getAuthUser: function(authToken) {
-        return this.tokens.find(auth => auth.token == authToken);
-    },    
+    },   
 
     // add new tracked data
     addNewTrackingData: function(username, roomData, dateData, beginData, endData, timeInSecondsData) {
@@ -103,15 +100,6 @@ module.exports.db = {
                     timeInSecondsData: this.trackingRecords[i].timeInSeconds
                 });                
             }
-        }
-        if (trackingData.length == 0) {
-            trackingData.push({
-                roomData: "N/A",
-                dateData: "N/A",
-                startTimeData: "N/A",
-                endTimeData: "N/A",
-                timeInSecondsData: "N/A"
-            })
         }
         return trackingData;        
     }

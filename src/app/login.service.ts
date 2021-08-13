@@ -6,8 +6,9 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
 
+export class LoginService {
+  
   loggedin$ = new BehaviorSubject(false);
   token: string = '';
   username: string = '';
@@ -19,7 +20,6 @@ export class LoginService {
   };
 
   logIn(username: string, password: string){
-
     this.http.post<{message: string, token: string, username: string;}>('http://localhost:3000/login', {password: password, username: username}, this.httpOptions)
         .subscribe((responseData) => {
           console.log(responseData);
@@ -28,17 +28,16 @@ export class LoginService {
             this.loggedin$.next(true);
             this.token = responseData.token;
             this.username = responseData.username;
-            this.router.navigate(['tracking']);
+            this.router.navigate(['overview']);
           } 
     });    
   }
 
   logOut(){
-
     this.http.post<{message: string;}>('http://localhost:3000/logout', {token: this.token}, this.httpOptions)
         .subscribe((responseData) => {
           console.log(responseData.message);
-          if(responseData.message == "logout"){
+          if(responseData.message == "logout successful"){
             this.loggedin$.next(false);
             this.token = '';
             this.username = '';
@@ -53,10 +52,6 @@ export class LoginService {
 
   getUsername(){
     return this.username;
-  }
-
-  getLogginStatus(): boolean{
-    return this.loggedin$.getValue();
   }
 
 }
