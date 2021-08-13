@@ -3,7 +3,6 @@
         <mat-form-field appearance="fill">
             <mat-label>Studyroom</mat-label>
             <mat-select formControlName="roomInput">
-                <mat-option>None</mat-option>
                 <mat-option *ngFor="let room of rooms"  [value]="room">{{room}}</mat-option>
             </mat-select>
             <mat-error *ngIf="trackingForm.get('roomInput')?.errors?.required">Input required</mat-error>

@@ -23,13 +23,8 @@ export class LoginComponent implements OnInit {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type':'application/json'})
   }
-  
 
   ngOnInit(): void {
-  }
-
-  get f(){
-    return this.loginForm.controls;
   }
 
   onSubmit(){

@@ -3,13 +3,13 @@
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Enter your username</mat-label>
           <input matInput type="text" placeholder="username" formControlName="username" name="username" required>
-          <mat-error *ngIf="f.username.hasError('required')">Username required</mat-error>
+          <mat-error *ngIf="loginForm.get('username')?.errors?.required">Username required</mat-error>
         </mat-form-field>
-    
+        
         <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Enter your password</mat-label>
-            <input matInput #input [type]="hide ? 'password' : 'text'"  formControlName="password" name="password" required>
-            <mat-error *ngIf="f.password.hasError('required')">Password required</mat-error>
+          <mat-label>Enter your password</mat-label>
+          <input matInput #input [type]="hide ? 'password' : 'text'"  formControlName="password" name="password" required>
+          <mat-error *ngIf="loginForm.get('password')?.errors?.required">Password required</mat-error>
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
