@@ -10,7 +10,7 @@
       
         <mat-form-field appearance="fill">
             <mat-label>Choose date</mat-label>
-            <input matInput [matDatepicker]="picker" readonly formControlName="dateInput" >
+            <input matInput [matDatepicker]="picker" [max]="maxDate" readonly formControlName="dateInput" >
             <mat-error *ngIf="trackingForm.get('dateInput')?.errors?.required">Input required</mat-error>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>

@@ -37,7 +37,8 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  clearInput() {    // resets registration form (no data, no validation errors until reload)
+  // resets registration form (no data, no validation errors until reload)
+  clearInput() {
     this.registerForm.reset();
     this.registerForm.controls["username"].setErrors(null);
     this.registerForm.controls["password_origin"].setErrors(null);

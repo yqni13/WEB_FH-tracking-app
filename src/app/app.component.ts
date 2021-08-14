@@ -7,6 +7,7 @@ import {LoginService} from './login.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'fh-tracking-app';
   loggedin: boolean= false;
   themeCounter = 0;
@@ -18,6 +19,7 @@ export class AppComponent {
   loggout(){    
     this.loginService.logOut();
   }
+
   colorTheme() {
     ++this.themeCounter;
 

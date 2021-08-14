@@ -40,7 +40,6 @@ module.exports.db = {
         }
 
         this.users.push({ username: userName, firstname: firstName, lastname: lastName, email: email, password: passwordHash.generate(password), university: "FH Technikum Wien"});
-        this.trackingRecords.push({username: userName, room: "N/A", date: "N/A", begin: "N/A", end: "N/A", timeInSeconds: "N/A"});
         return true;
     },
 
@@ -69,13 +68,12 @@ module.exports.db = {
         return this.tokens.find(auth => auth.token == authToken) != undefined;
     },   
 
-    // add new tracked data
     addNewTrackingData: function(username, roomData, dateData, beginData, endData, timeInSecondsData) {
         this.trackingRecords.push({username: username, room: roomData, date: dateData, begin: beginData, end: endData, timeInSeconds: timeInSecondsData});
     },
 
-    // get overview -> all tracking data regarding chosen user
     getUserProfile: function(username) {
+        // .findIndex-method looks for user -> only one user can be found
         let indexData = this.users.findIndex(i => i.username === username);
         return {
             nameData: this.users[indexData].username,
@@ -87,9 +85,10 @@ module.exports.db = {
     },
 
     getTrackingRecords: function(username) {
-        //let indexTracking = this.trackingRecords.findIndex(i => i.username === username);
         let trackingData = [];
         let j = 0;
+
+        // travers through trackingRecords Array because one user can have multiple data
         for(let i = 0; i < this.trackingRecords.length; ++i) {     
             if (this.trackingRecords[i].username === username) {
                 trackingData.push({
@@ -100,6 +99,16 @@ module.exports.db = {
                     timeInSecondsData: this.trackingRecords[i].timeInSeconds
                 });                
             }
+        }
+        // new registered users with no tracked data will show placeholder instead
+        if (trackingData.length == 0) {
+            trackingData.push({
+                roomData: "N/A",
+                dateData: "N/A",
+                startTimeData: "N/A",
+                endTimeData: "N/A",
+                timeInSecondsData: "N/A"
+            });
         }
         return trackingData;        
     }
