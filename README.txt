@@ -5,7 +5,7 @@
 # content
 
 	develop a webpage with user authenticated system that enables you to track
-	your spent time in a room located at FH Technikum Vienna and overview all
+	your time spent in a room located at FH Technikum Vienna and overview all
 	tracked data
 	
 	
