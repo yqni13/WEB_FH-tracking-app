@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 
 import { ConfirmPasswordValidator } from '../confirmPassword.validator';
 
@@ -20,7 +19,11 @@ export class RegisterComponent implements OnInit {
   }
 
   registerForm: UntypedFormGroup = new UntypedFormGroup({});
-  constructor(private fb: UntypedFormBuilder, private http: HttpClient, private _snackBar: MatSnackBar) { 
+  constructor(
+    private fb: UntypedFormBuilder, 
+    private http: HttpClient, 
+    // private _snackBar: MatSnackBar
+  ) { 
     this.registerForm = fb.group({
       username: ['', [Validators.required]],
       password_origin: ['', [Validators.required, Validators.minLength(8)]],
@@ -57,7 +60,7 @@ export class RegisterComponent implements OnInit {
       this.http.post<{ message: 'string' }>('http://localhost:3000/register', { "username": this.registerForm.value.username, "firstname": this.registerForm.value.firstname, "lastname": this.registerForm.value.lastname, "email": this.registerForm.value.email, "password": this.registerForm.value.password_confirm }, this.httpOptions).subscribe ({
         next: (responseData) => {
           console.log(responseData.message);
-          this._snackBar.open(this.message, 'go to LOGIN!', { duration: 3000 });
+          // this._snackBar.open(this.message, 'go to LOGIN!', { duration: 3000 });
           this.clearInput();
         },
         error: (err) => {
