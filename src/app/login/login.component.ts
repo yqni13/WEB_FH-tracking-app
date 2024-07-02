@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {LoginService} from '../login.service';
 
@@ -13,9 +13,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router, private loginService: LoginService) { }
   
-  loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+  loginForm = new UntypedFormGroup({
+    username: new UntypedFormControl('', Validators.required),
+    password: new UntypedFormControl('', Validators.required),
   });
 
   hide = true;

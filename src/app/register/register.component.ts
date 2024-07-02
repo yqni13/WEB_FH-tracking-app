@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -19,8 +19,8 @@ export class RegisterComponent implements OnInit {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   }
 
-  registerForm: FormGroup = new FormGroup({});
-  constructor(private fb: FormBuilder, private http: HttpClient, private _snackBar: MatSnackBar) { 
+  registerForm: UntypedFormGroup = new UntypedFormGroup({});
+  constructor(private fb: UntypedFormBuilder, private http: HttpClient, private _snackBar: MatSnackBar) { 
     this.registerForm = fb.group({
       username: ['', [Validators.required]],
       password_origin: ['', [Validators.required, Validators.minLength(8)]],
